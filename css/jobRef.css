@@ -1,0 +1,53 @@
+#container {width:800px; margin:0 auto;}
+
+#MainContent { padding-left: 0.5em; height: 900px; background-color: white; }
+
+.column { position:relative;}
+
+.label { display: inline-block; width: 80px; font-size:11px; font-weight:bold; color:#666;}
+
+#leftCol { width: 560px;height:800px;padding-left:1em; background: url(../css/images/pagegradient.gif) repeat-x #FFFFFF; float:left; }
+
+#rightCol { color:#000; padding:0 0 0 .5em; margin-right:.5em; width: 200px; min-height:160px; background-color:#9F9F8D; float:right; }
+
+#rightColUser { padding:0 0 0 1em; margin-right:.5em; width: 200px; min-height:800px; background-color:#9F9F8D; float:right; }
+
+#rightColUser li {color:#FFF;}
+
+#rightColUser a {color:#00295E;}
+
+#rightCol li {color:#FFF;}
+
+#rightCol a {color:#00295E;}
+
+#writerBox { border-bottom-style: inset; background-color: #f4f6e4; min-height: 30px;}
+
+#writers {padding-left: 10px;}
+
+#loginHeader { text-align: center; background-color: #e8e1e1;}
+
+.loginUser {font-weight: bold;}
+
+fieldset {background:#f2f2e6; padding:5px; border:1px solid #fff; border-color:#fff #666661 #666661 #fff; margin-bottom:25px; width:520px;}
+
+.subChng {margin-top:-20px;}
+
+legend {background:#bfbf30; color:#fff; font:17px/21px Calibri, Arial, Helvetica, sans-serif; padding:0 10px; margin:-26px 0 0 -11px; font-weight:bold; border:1px solid #fff; border-color:#e5e5c3 #505014 #505014 #e5e5c3;}
+
+/*label {font-size:11px; font-weight:bold; color:#666;}*/
+
+table, th, td { border: 1px solid black;}
+
+table {width: 100%;}
+
+#reqDwnld{font-size:10px;color: gray ;}
+
+#infoBanner {width:320px;margin:50px;padding:10px;border-style:ridge;border-width:5px;text-align: center;}
+
+#infoBannerBtn{color:sienna;padding-left:5px;}
+
+#dataArea {overflow: scroll;height: 570px;width: 770px;}
+
+#reqSubmitted {overflow-y: scroll;height: 300px;}
+
+#instructions {padding-bottom: 15px;}

@@ -1,0 +1,133 @@
+body {
+	font-size: 1em;
+	margin: 0 auto;
+	background: url(../css/images/tone.gif) repeat-x #042341;
+	padding-left:2.8em;
+	padding-right:2.8em;
+	text-align:center;
+	
+}
+
+a:hover {
+	cursor: pointer;
+	color: #ffcc33;
+	background-color: lightslategray; 
+	text-decoration: none;
+	}
+
+#Container {
+	font-size: 11px;
+	width: 796px;
+	text-align: left;
+	margin:0 auto;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#Banner {
+	background-color: red;
+	padding-bottom:.5em;
+	border: 0;
+}
+
+#MainContent {  
+	padding-left: 0.5em; 
+	height: 500px;
+	background-color: white;
+ }
+ 
+ #leftCol {
+	padding-left:1em;
+ 	width: 550px;
+	background: url(../css/images/pagegradient.gif) repeat-x #FFFFFF;
+	float:left;
+ }
+ 
+ #rightCol {
+	color:#FFF;
+	padding:0 0 0 1em;
+	margin-right:.5em;
+ 	width: 200px;
+	min-height:420px;
+	background-color:#9F9F8D;
+	float:right;
+	
+ }
+h1.rtCol {
+	width:190px;
+	color:#3C3F43;
+	font-size:13px;
+	font-weight:400;
+	padding-bottom: .5em;
+	border-bottom:thin;
+	border-bottom-style:solid;
+ }
+
+
+
+h1 {
+	font-size: 1.5em;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+h2 {	
+	font-size: 1.25em;
+	color:blue;
+}
+
+
+ 
+/* Footer Elements */
+#footer { 
+	padding-bottom: .2em; 
+	padding-top: .2em; 
+	clear: both; 
+	margin: 0px auto 0px auto; 
+	width: 800px; 
+	height: 60px; 
+	text-align: left;
+	}
+
+#footer p {
+	margin-right: 45px;
+	float: left;
+	width: 130px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 7pt; 
+	color: #5e8bac;
+	line-height:12px;
+  }
+
+#footer a img {
+	border: 0px;
+	}
+	
+#footer p#logos {
+	margin-right: 0px; 
+	float: none; 
+	clear: left; 
+	width: auto;
+	}
+	
+#footer p#UMlogos {
+	margin-right: 0px; 
+	float: left; 
+	}
+	
+#footer p#ftr-contact {
+	margin-right: 25px; 
+	float: left; 
+	width: 190px;
+	}
+	
+#footer a {
+	color: #5e8bac; 
+	text-decoration: none;
+	}
+
+#footer a:hover {
+	background-color: transparent; 
+	text-decoration: underline;
+}
+
+
+
