@@ -1,5 +1,5 @@
 <?php 
-require_once("../../../Support/configSocRefLetV2.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 $sql = "SELECT * FROM SRL_tbl_Admin WHERE AdminUniqname = '$login_name'";
 $check = mysqli_query($db,$sql);

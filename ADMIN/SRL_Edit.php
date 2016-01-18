@@ -1,5 +1,5 @@
 <?php 
-require_once("../../../Support/configSocRefLetV2.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 $passedID =  $_GET['id'];
 /* $passedID =  clean($_GET['id']); */ 

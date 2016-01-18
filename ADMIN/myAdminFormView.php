@@ -1,5 +1,5 @@
 <?php
-require_once("../../../Support/configSocRefLetV2.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 		$queryAdmin = "SELECT * FROM SRL_tbl_Admin ORDER BY AdminUniqname ASC";
 		

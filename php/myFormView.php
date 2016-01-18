@@ -1,5 +1,5 @@
 <?php
-require_once("../../../Support/configSocRefLetV2.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 		$query = "SELECT * FROM SRL_tbl_StudentToWriter WHERE FK_student_uniqname = '$login_name' ";
 		

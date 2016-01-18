@@ -18,7 +18,7 @@ $("#newWriter").click( function(){
 
 $("#myForm").submit( function() {
 	return false;
-});					
+});
 
 
 function clearInput(){
@@ -32,14 +32,14 @@ function done(){
 	setTimeout( function(){
 	updates();
 //	done();
-	}, 200);	
+	}, 200);
 }
 
 function updates(){
 	$.getJSON("php/myFormView.php", function(data){
 	   	$("#writers").empty();
-	   	$.each(data.result, function(){	   	
-	   		$("#writers").append(this['writer'] + " -- " + this['fName'] + " " + this['lName'] + "<br />");   		
+	   	$.each(data.result, function(){
+	   		$("#writers").append(this['writer'] + " -- " + this['fName'] + " " + this['lName'] + "<br />");
 	   	    });
 	});
 

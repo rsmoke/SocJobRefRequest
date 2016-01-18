@@ -1,5 +1,5 @@
 <?php
-require_once("../../../Support/configSocRefLetV2.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 $recordNum = intval(trim($_POST['recordID']));
 $sentON1 = mysqli_real_escape_string($db, trim($_POST['sentDate1']));
