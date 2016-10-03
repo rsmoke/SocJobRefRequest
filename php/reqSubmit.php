@@ -10,12 +10,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 
-<!-- 	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
-	<link rel="stylesheet" href="../css/jquery-ui-1.11.1.min.css" type="text/css" />
-
-	<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="../js/jquery-ui-1.11.1.min.js"></script> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -60,13 +55,20 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 			        	<input type="text" name="dueDate" id="datepicker" >
 
 			        	<table>
-			        	<tr><td width="50%">
+									<tr>
+										<td width="50%" style="padding-left:5px;">
 		            	<label for="letterType" class="control-label input-group">Request Type</label>
-		            	<div class="btn-group">
-		            	<label class="label"><input type="radio" name="letterType" id="email" value="eMail" >&nbsp;eMail&nbsp;<input type="text" name="recipEmail" id="recipEmail" placeholder="eMail of recipient"></label><br />
-		            	<label class="label"><input type="radio" name="letterType" id="electUpld" value="eUpload" >&nbsp;Upload&nbsp;<input type="text" name="recipURL" id="recipURL" placeholder="webLink for Upload"></label><br />
-		                <label class="label"><input type="radio" name="letterType" id="hdCpy" value="HardCopy" >&nbsp;Hardcopy</label>
-		               </div>
+											<div class="radio">
+												<label><input type="radio" name="letterType" id="email" value="eMail">eMail</label>&nbsp;<input
+													type="text" name="recipEmail" id="recipEmail" placeholder="eMail of recipient">
+											</div>
+											<div class="radio">
+												<label><input type="radio" name="letterType" id="electUpld" value="eUpload">Upload</label>&nbsp;<input
+													type="text" name="recipURL" id="recipURL" placeholder="webLink for Upload">
+											</div>
+											<div class="radio">
+												<label><input type="radio" name="letterType" id="hdCpy" value="HardCopy">Hardcopy</label>
+											</div>
 
 			        	</td><td>
 			<?php

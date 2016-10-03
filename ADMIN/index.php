@@ -11,14 +11,15 @@ if (mysqli_num_rows($check) > 0 ){
 <head>
 	<title><?php echo "$deptShtName";?> Ref Letter ADMIN</title>
 	<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="../css/bootstrap.min.css">	  
-	<link rel="stylesheet" href="../css/jquery-ui-1.11.1.min.css" type="text/css" />
 
-	<script type="text/javascript" src="../js/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="../js/jquery-ui-1.11.1.min.js"></script>
-	
-	<link rel="stylesheet" href="../css/default.css" type="text/css"></link>	
-    <link rel="stylesheet" href="../css/jobRef.css" type="text/css"></link>    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="../css/default.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/jobRef.css" type="text/css"/>
 </head>
 
 <body>
@@ -36,6 +37,9 @@ if (mysqli_num_rows($check) > 0 ){
 			<ul>
 				<li><b><a href="SRL_UnsentOutput.php" download>UN-SENT REQUESTS LIST</a></b></li>
 				<li><b><a href="SRL_CompleteOutput.php" download>COMPLETE LISTING</a></b></li>
+        <li><b><a href="SRL_CompleteOutputLastYear.php" download>ITEMS SUBMITTED SINCE <span
+                style="background-color: #dedede; border: solid 1px black; border-radius: 2px;">&nbsp;<?php echo date("j M Y", strtotime("-1 years")); ?>
+                &nbsp;</span></a></b></li>
 			</ul>
 			 <i>Your file will download immediately</i>
 			 </div><!-- downloadFiles -->
@@ -92,9 +96,9 @@ if (mysqli_num_rows($check) > 0 ){
 <!doctype html>
 <html>
 <head>
-    <title>YOU ARE NOT AUTHORIZED - UM Department of <?php echo "$deptLngName";?></title> 
-	<link rel="stylesheet" href="../css/default.css" type="text/css"></link>
-	<link rel="stylesheet" href="../css/jobRef.css" type="text/css"></link>
+    <title>YOU ARE NOT AUTHORIZED - UM Department of <?php echo "$deptLngName";?></title>
+  <link rel="stylesheet" href="../css/default.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/jobRef.css" type="text/css"/>
 </head>
 <body>
 <div id="Container">

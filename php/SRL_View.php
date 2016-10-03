@@ -4,18 +4,24 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 $passedID = $_GET['id']; 
 
 $queryRecord = "SELECT *
-FROM `SRL_tbl_refLetter` AS Letter
-WHERE Letter.`refLetter_ID` =  $passedID AND Letter.refLetter_FKstudent_uniqname = '$login_name'";
+FROM SRL_tbl_refLetter AS Letter
+WHERE Letter.refLetter_id =  $passedID AND Letter.refLetter_FKstudent_uniqname = '$login_name'";
 
 ?>
 <!doctype html>
 <html>
 <head>
     <title><?php echo "$deptShtName";?> Ref Letter Request - UM Department of <?php echo "$deptLngName";?></title>
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" /> 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">	  
-	<link rel="stylesheet" href="../css/default.css" type="text/css"></link>	
-    <link rel="stylesheet" href="../css/jobRef.css" type="text/css"></link>
+	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"/>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+	<link rel="stylesheet" href="../css/default.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jobRef.css" type="text/css"/>
 
 </head>
 <body>
@@ -33,19 +39,19 @@ if (!$resultRecord) die ("Database access failed please contact site administrat
   
   // Fetch one and one row
 $row=mysqli_fetch_array($resultRecord);
-$fullName = ldapGleaner($row[refLetter_FKstudent_uniqname]);
+$fullName = ldapGleaner($row['refLetter_FKstudent_uniqname']);
 
  ?>
 <div id="instructions">
-<h4>Your Reference Letter Request for the position of: <br /> 
-	<?php echo $row[refLetter_positionTitle]?> at <?php echo $row[refLetter_institute_name]?></h4>
+<h4>Your Reference Letter Request for the position of: <br />
+	<?php echo $row['refLetter_positionTitle'] ?> at <?php echo $row['refLetter_institute_name'] ?></h4>
 </div><!-- #instructions -->
 
 <div>		
 				<fieldset>
 			    	<legend>Personal Info</legend>
-					
-			        	<label for="recordID">Record ID:&nbsp;</label><?php echo($row[refLetter_id])?>
+
+					<label for="recordID">Record ID:&nbsp;</label><?php echo($row['refLetter_id']) ?>
 	<br />
 			        	<label for="rqstrFname">First name:</label>
 			            <?php echo($fullName[0])?>
@@ -55,21 +61,21 @@ $fullName = ldapGleaner($row[refLetter_FKstudent_uniqname]);
 			            <?php echo($fullName[1])?>
 			        
 			            <label for="rqstrUniq">Uniqname:</label>
-			            <?php echo($row[refLetter_FKstudent_uniqname])?>
+					<?php echo($row['refLetter_FKstudent_uniqname']) ?>
 
 			    </fieldset>
 			    <fieldset>
 			    	<legend>Reference Letter Details</legend>
 			    	
 			        	<label for="posTitle">Job Title:</label>
-			            <?php echo($row[refLetter_positionTitle])?>
+						<?php echo($row['refLetter_positionTitle']) ?>
 			        
 			    	 
 			        	<label for="dueDate">Date Due:</label>
-			            <?php echo($row[refLetter_dueDate])?>
+						<?php echo($row['refLetter_dueDate']) ?>
 			        
 			        	<label for="rqstType">Request Type:</label>
-			            <?php echo($row[refLetter_type])?>
+						<?php echo($row['refLetter_type']) ?>
 						
 						<br />
 
@@ -84,7 +90,7 @@ $fullName = ldapGleaner($row[refLetter_FKstudent_uniqname]);
 			        		// }
 
 			        		foreach($row as $key => $value){
-			        			if ($key === "refLetter_FKwriterID" && $value !== "NotSelected"){
+										if ($key === 'refLetter_FKwriterID' && $value !== 'NotSelected') {
 				        				$fullName = ldapGleaner($value);
 				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate1] . "</td></tr>"; 
 			        			} elseif ($key === "refLetter_FKwriterID2" && $value !== "NotSelected"){

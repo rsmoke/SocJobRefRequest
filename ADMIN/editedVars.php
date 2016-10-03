@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
-$recordNum = intval(trim($_POST['recordID']));
+$recordNum = (int)trim($_POST['recordID']);
 $sentON1 = mysqli_real_escape_string($db, trim($_POST['sentDate1']));
 $sentON2 = mysqli_real_escape_string($db, trim($_POST['sentDate2']));
 $sentON3 = mysqli_real_escape_string($db, trim($_POST['sentDate3']));
@@ -19,7 +19,7 @@ $resSQL = mysqli_query($db,$sql);
 	if (!$resSQL)
 	  {
 	  	printf("Errormessage: %s\n", mysqli_error($db));
-	  	die ("<html><head><link rel='stylesheet' href='../css/jobRef.css' type='text/css'></link></head><body>
+      die ("<html><head><link rel='stylesheet' href='../css/jobRef.css' type='text/css' /></head><body>
 		<div id='infoBanner'> 
 		The changes failed to be submitted<br />
 		<span id='infoBannerBtn'><a href='../ADMIN/index.php'>Return to main page</a></span>

@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -9,14 +9,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<!--     <link rel="stylesheet" href="css/jquery-ui-1.11.1.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/jquery-ui-1.11.1.structure.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/jquery-ui-1.11.1.theme.min.css" type="text/css" /> -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 	<link rel="stylesheet" href="css/default.css" type="text/css" />
     <link rel="stylesheet" href="css/jobRef.css" type="text/css" />
@@ -47,9 +44,11 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 					<br />
 				</div><!-- #writerBox -->
 				<form id="myForm">
-					If you would like to register another letter writer please enter their <b>uniqname</b> here
+          If you would like to register another letter writer please enter their <strong>uniqname</strong> here
 					<input type="text" name="name" />
-					<button id="newWriter" type="button" class="btn btn-info btn-xs">Add</button><br /><i>--look up uniqnames using the <a href="https://mcommunity.umich.edu/" target="_blank">Mcommunity directory</a>.</i>
+          <button id="newWriter" type="button" class="btn btn-info btn-xs">Add</button>
+          <br/><em>--look up uniqnames using the <a href="https://mcommunity.umich.edu/" target="_blank">Mcommunity
+              directory</a>.</em>
 				</form><!-- myForm -->
 			</div><!-- form section-->
 			<hr />
@@ -57,7 +56,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 				<p>These are your submitted requests.</p>
 				<button id="reqSub" type="button" class="btn btn-info btn-xs">Add a New Request</button>&nbsp;&nbsp;<button id="indDwnld" class="btn btn-default btn-xs" type="button">Download Archive</button><br />
 				<div id="reqSubmitted">
-					<?php include("php/userSubmitted.php"); ?>
+          <?php include 'php/userSubmitted.php'; ?>
 				</div> <!-- #reqSubmitted -->
 			</div><!-- submitted requests section -->
 		</div><!-- #leftCol -->

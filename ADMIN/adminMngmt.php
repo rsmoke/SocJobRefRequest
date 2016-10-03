@@ -1,5 +1,5 @@
-<?php 
-require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
 
 $sql = "SELECT * FROM SRL_tbl_Admin WHERE AdminUniqname = '$login_name'";
 $check = mysqli_query($db,$sql);
@@ -14,12 +14,16 @@ if (mysqli_num_rows($check) > 0 ){
 <html>
 <head>
 	<title><?php echo "$deptShtName";?> Ref Letter ADMIN</title>
-	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
-	<script src="../js/jquery-1.10.1.min.js" type="text/javascript"></script> 
-	<script src="../js/jquery-ui-1.11.1.min.js" type="text/javascript"></script>	 
-	<link rel="stylesheet" href="../css/default.css" type="text/css"></link>	
-    <link rel="stylesheet" href="../css/jobRef.css" type="text/css"></link>   
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+  <link rel="stylesheet" href="../css/default.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/jobRef.css" type="text/css"/>
 </head>
 
 <body>
@@ -106,9 +110,9 @@ if (mysqli_num_rows($check) > 0 ){
 <!doctype html>
 <html>
 <head>
-    <title>DEV YOU ARE NOT AUTHORIZED - UM Department of <?php echo "$deptLngName";?></title> 
-	<link rel="stylesheet" href="../css/default.css" type="text/css"></link>
-	<link rel="stylesheet" href="../css/jobRef.css" type="text/css"></link>
+  <title>DEV YOU ARE NOT AUTHORIZED - UM Department of <?php echo "$deptLngName"; ?></title>
+  <link rel="stylesheet" href="../css/default.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/jobRef.css" type="text/css"/>
 </head>
 <body>
 <div id="Container">

@@ -1,11 +1,15 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
-$id = intval(trim($_GET["delid"]));
+$id = (int)trim($_GET["delid"]);
 
-$queryDel = "DELETE FROM SRL_tbl_refLetter where refLetter_id = $id AND refLetter_FKstudent_uniqname = '$login_name'";
+// prepare and bind
+$stmt = $db->prepare("DELETE FROM SRL_tbl_refLetter WHERE refLetter_id = ? AND refLetter_FKstudent_uniqname = ?");
+$stmt->bind_param("is", $id, $login_name);
+// set parameters and execute
+$id = (int)trim($_GET["delid"]);
 
-if (!mysqli_query($db,$queryDel))
+if (!$stmt->execute())
   {
   die('Error: ' . mysqli_error($db));
   }
