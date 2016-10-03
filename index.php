@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
 <head>
     <title><?php echo "$deptShtName";?> Ref Letter Request - UM Department of <?php echo "$deptLngName";?></title>
 
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">

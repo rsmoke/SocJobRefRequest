@@ -8,10 +8,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
   <title><?php echo "$siteTitle";?> Under Maintenance</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LSA-MIS ArtSurvey">
-  <meta name="keywords" content="LSA-MIS, ArtSurvey, UniversityofMichigan">
+  <meta name="description" content="LSA_Soc_Ref_Letter_Request">
+  <meta name="keywords" content="LSA, SOC, Reference, Letter, UniversityofMichigan">
   <meta name="author" content="LSA-MIS_rsmoke">
-  <link rel="icon" href="ico/favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <style>
     html {
       background: url(images/maintainImage.png) no-repeat center center fixed;
