@@ -14,24 +14,23 @@ if (isset($_GET['delid'])) {
 		// set parameters and execute
 				$id = (int)trim($_GET['delid']);
 				$stmt->execute();
+?>
+	<html>
+	<body>
+		<div style="width:280px;margin:50px;padding:10px;border-style:ridge;border-width:5px">
+						You have deleted your request successfully <br />
+			<a style="color:sienna;margin-left:60px" href='../index.php'>Return to main page</a>
+		</div><!-- infoBanner -->
+	</body>
+	</html>
+
+<?php
 			}
 		} catch (Exception $e) {
 			$error = $e->getMessage();
 			db_fatal_error('admin delete issue', $error, $sql);
+			exit($user_err_message);
 		}
 }
 
-?>
-
-<html>
-<body>
-	<div style="width:280px;margin:50px;padding:10px;border-style:ridge;border-width:5px">  
-		You have deleted your request successfully <br />
-		<a style="color:sienna;margin-left:60px" href='../index.php'>Return to main page</a>
-	</div><!-- infoBanner -->	
-</body>
-</html>
-
-<?php
 mysqli_close($db);
-?>
