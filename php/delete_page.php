@@ -1,18 +1,25 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
 
-$id = (int)trim($_GET["delid"]);
-
-// prepare and bind
-$stmt = $db->prepare("DELETE FROM SRL_tbl_refLetter WHERE refLetter_id = ? AND refLetter_FKstudent_uniqname = ?");
-$stmt->bind_param("is", $id, $login_name);
-// set parameters and execute
-$id = (int)trim($_GET["delid"]);
-
-if (!$stmt->execute())
-  {
-  die('Error: ' . mysqli_error($db));
-  }
+if (isset($_GET['delid'])) {
+		try {
+		// prepare and bind
+			$sql = 'DELETE FROM SRL_tbl_refLetter 
+							WHERE refLetter_id = ? AND refLetter_FKstudent_uniqname = ?';
+			$stmt = $db->stmt_init();
+			if (!$stmt->prepare($sql)) {
+				$error = $stmt->error;
+			} else {
+				$stmt->bind_param('is', $id, $login_name);
+		// set parameters and execute
+				$id = (int)trim($_GET['delid']);
+				$stmt->execute();
+			}
+		} catch (Exception $e) {
+			$error = $e->getMessage();
+			db_fatal_error('admin delete issue', $error, $sql);
+		}
+}
 
 ?>
 
