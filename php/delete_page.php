@@ -9,6 +9,8 @@ if (isset($_GET['delid'])) {
 			$stmt = $db->stmt_init();
 			if (!$stmt->prepare($sql)) {
 				$error = $stmt->error;
+        db_fatal_error('stmt prepare error', $error, $sql);
+        exit($user_err_message);
 			} else {
 				$stmt->bind_param('is', $id, $login_name);
 		// set parameters and execute
