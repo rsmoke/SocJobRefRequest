@@ -2,12 +2,22 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
 
 $sql = "SELECT * FROM SRL_tbl_Admin WHERE AdminUniqname = '$login_name'";
-$check = mysqli_query($db,$sql);
-if (mysqli_num_rows($check) > 0 ){
+if (!$check = $db->query($sql)) {
+  db_fatal_error('data select issue', $db->error, $sql);
+  exit($user_err_message);
+}
+
+$numrows = $check->num_rows;
+if ($numrows){
 
 	if(isset($_GET['delete'])) {
-	$result = mysqli_query($db,'DELETE FROM SRL_tbl_Admin WHERE id = '.(int)$_GET['delete']);
-	}
+    $delquery = 'DELETE FROM SRL_tbl_Admin WHERE id = ' . (int)$_GET['delete'];
+    if (!$result = $db->query($delquery)) {
+      db_fatal_error('data delete issue', $db->error, $delquery);
+      exit($user_err_message);
+    }
+      unset($_GET['delete']);
+  }
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -40,8 +50,13 @@ if (mysqli_num_rows($check) > 0 ){
 			<span id="currAdmins">
 	
 		<?php
-		$result = mysqli_query($db,'SELECT * FROM SRL_tbl_Admin ORDER BY AdminUniqname ASC');
-		while($row = mysqli_fetch_assoc($result)) {
+		$queryRecord = 'SELECT * FROM SRL_tbl_Admin ORDER BY AdminUniqname ASC';
+		if (!$result = $db->query($queryRecord)) {
+			db_fatal_error('data select issue', $db->error, $queryRecord);
+			exit($user_err_message);
+		}
+
+		while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 			$fullname = ldapGleaner($row['AdminUniqname']);
 			echo '<div class="record" id="record-',$row['id'],'">
 				<a href="?delete=',$row['id'],'" class="delete"><span style=color:red;font-weight:bold;>X</span></a>
@@ -173,6 +188,4 @@ if (mysqli_num_rows($check) > 0 ){
 <?php
 }
 
-mysqli_free_result($check);
-mysqli_free_result($result);
-mysqli_close($db);
+$db->close();
