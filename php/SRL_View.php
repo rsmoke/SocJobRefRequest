@@ -92,19 +92,19 @@ $fullName = ldapGleaner($row['refLetter_FKstudent_uniqname']);
 			        		foreach($row as $key => $value){
 										if ($key === 'refLetter_FKwriterID' && $value !== 'NotSelected') {
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate1] . "</td></tr>"; 
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row['refLetter_sentDate1'] . "</td></tr>";
 			        			} elseif ($key === "refLetter_FKwriterID2" && $value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate2] . "</td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row['refLetter_sentDate2'] . "</td></tr>";
 			        			} elseif ($key === "refLetter_FKwriterID3" && $value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate3] . "</td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row['refLetter_sentDate3'] . "</td></tr>";
 			        			} elseif ($key === "refLetter_FKwriterID4" && $value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate4] . "</td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row['refLetter_sentDate4'] . "</td></tr>";
 			        			} elseif ($key === "refLetter_FKwriterID5" && $value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row[refLetter_sentDate5] . "</td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td>" . $row['refLetter_sentDate5'] . "</td></tr>";
 			        			}
 			        		}				        		
 			        	 ?>
@@ -118,51 +118,51 @@ $fullName = ldapGleaner($row['refLetter_FKstudent_uniqname']);
 			    	<legend>Recipient Details</legend>  
 			        
 			        	
-			            <?php if ($row[refLetter_title] !== "other"){ echo($row[refLetter_title] );}; ?> <?php echo($row[refLetter_Fname])?> <?php echo($row[refLetter_Lname])?> <?php echo($row[refLetter_suffix])?>
+			            <?php if ($row['refLetter_title'] !== "other"){ echo($row['refLetter_title'] );}; ?> <?php echo($row['refLetter_Fname'])?> <?php echo($row['refLetter_Lname'])?> <?php echo($row['refLetter_suffix'])?>
 			        
 			        <br />
 			
-			        	<?php echo($row[refLetter_institute_name])?>
+			        	<?php echo($row['refLetter_institute_name'])?>
 			        <br />
-				       	<?php echo($row[refLetter_institute_dept])?>
+				       	<?php echo($row['refLetter_institute_dept'])?>
 			        
 			        <br />
 			         <?php 
-		            	if (strlen($row[refLetter_institute_room]) > 0){
-		            		echo('Room/Suite: ' . $row[refLetter_institute_room] . '<br />');
+		            	if (strlen($row['refLetter_institute_room']) > 0){
+		            		echo('Room/Suite: ' . $row['refLetter_institute_room'] . '<br />');
 		            	};
 			          ?>  
 			        
-			        	<?php echo($row[refLetter_institute_street])?>
+			        	<?php echo($row['refLetter_institute_street'])?>
 			        
 			        <br />
 			        
-			        	<?php echo($row[refLetter_institute_city] . ", " . $row[refLetter_institute_state] . " " . $row[refLetter_institute_zipcode])?>			        
+			        	<?php echo($row['refLetter_institute_city'] . ", " . $row['refLetter_institute_state'] . " " . $row['refLetter_institute_zipcode'])?>
 			        
 			        <br />
 			        <?php
-			        	if (strlen($row[refLetter_institute_country]) > 0){
-		            		echo($row[refLetter_institute_country] . '<br />');
+			        	if (strlen($row['refLetter_institute_country']) > 0){
+		            		echo($row['refLetter_institute_country'] . '<br />');
 		            	};
 	            		?>
 
 		            <br />
 		            <?php
-		            	if (strlen($row[refLetter_Email]) > 0){
-		            		echo('eMail: ' . $row[refLetter_Email] . '<br />');
+		            	if (strlen($row['refLetter_Email']) > 0){
+		            		echo('eMail: ' . $row['refLetter_Email'] . '<br />');
 		            	};
 
-		            	if (strlen($row[refLetter_URL]) > 0){
-		            		echo('URL: ' . $row[refLetter_URL] . '<br />');
+		            	if (strlen($row['refLetter_URL']) > 0){
+		            		echo('URL: ' . $row['refLetter_URL'] . '<br />');
 		            	};
 
-		            	if (strlen($row[refLetter_institute_phone]) > 0){
-		            		echo('Phone: ' . $row[refLetter_institute_phone] . '<br />');
+		            	if (strlen($row['refLetter_institute_phone']) > 0){
+		            		echo('Phone: ' . $row['refLetter_institute_phone'] . '<br />');
 		            	};
 			          ?>  
 			        <br />
 			        	<label for="recipSpInstx">Special Instructions:</label>
-			            <?php echo($row[refLetter_specialInstx])?>
+			            <?php echo($row['refLetter_specialInstx'])?>
 			        
 			    </fieldset>
 			    
@@ -172,7 +172,7 @@ $fullName = ldapGleaner($row['refLetter_FKstudent_uniqname']);
 			
 			        
 			        	<label for="comments">Notes from the Grad Office:</label>
-			            <?php echo($row[refLetter_message])?>
+			            <?php echo($row['refLetter_message'])?>
 			        
 
 			    </fieldset>
