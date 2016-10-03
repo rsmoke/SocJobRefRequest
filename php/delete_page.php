@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] . '/../Support/configSocRefLetV2.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../Support/configSocRefLetV2.php';
 
 if (isset($_GET['delid'])) {
 		try {
@@ -33,4 +33,6 @@ if (isset($_GET['delid'])) {
 		}
 }
 
-mysqli_close($db);
+if (isset($db)) {
+  $db->close();
+}
