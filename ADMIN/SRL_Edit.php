@@ -12,14 +12,15 @@ $queryRecord = "SELECT *
 				FROM SRL_tbl_refLetter AS Letter
 				JOIN SRL_tbl_student ON Letter.refLetter_FKstudent_uniqname = SRL_tbl_student.student_uniqname 
 				WHERE Letter.refLetter_id =  '$passedID' ";
-				
-$resultRecord = mysqli_query($db,$queryRecord);
-if (!$resultRecord) die ("Database access failed please contact the website administrator and give them this error: " . mysqli_connect__error());
 
+	if (!$resultRecord = $db->query($queryRecord)) {
+		db_fatal_error('data select issue', $db->error, $queryRecord);
+		exit($user_err_message);
+	}
 
-$row=mysqli_fetch_array($resultRecord);
+$row = $resultRecord->fetch_array(MYSQLI_ASSOC);
 
-	switch ($row[refLetter_flag]) {
+	switch ($row['refLetter_flag']) {
 
 	    case 1:
 	    	//green
@@ -67,8 +68,8 @@ $row=mysqli_fetch_array($resultRecord);
 <div id="leftCol" class="column">
 <div id="instructions">
 
-<h4>Reference Letter Request for <?php echo $row[student_Fname], " ", $row[student_Lname] ?> for the position of:&nbsp;<br />
- <?php echo $row[refLetter_positionTitle]?> at <?php echo $row[refLetter_institute_name]?></h4>
+<h4>Reference Letter Request for <?php echo $row['student_Fname'], " ", $row['student_Lname'] ?> for the position of:&nbsp;<br />
+ <?php echo $row['refLetter_positionTitle']?> at <?php echo $row['refLetter_institute_name']?></h4>
 <p>Edit the selected record and when you are finished click the submit button at the bottom of the page.</p> 
 </div><!-- #instructions -->
 
@@ -77,31 +78,31 @@ $row=mysqli_fetch_array($resultRecord);
 				<fieldset>
 			    	<legend>Personal Info</legend>
 					<div style="background-color:<?php echo $color?>">
-			        	Record ID: <?php echo($row[refLetter_id])?>
-			        	<input type="hidden" name="recordID" id="recordID" value= "<?php echo($row[refLetter_id])?>"/>
+			        	Record ID: <?php echo($row['refLetter_id'])?>
+			        	<input type="hidden" name="recordID" id="recordID" value= "<?php echo($row['refLetter_id'])?>"/>
 
 			        	<label for="rqstrFname">First name:</label>
-			            <?php echo($row[student_Fname])?>
+			            <?php echo($row['student_Fname'])?>
 			       
 			        	<label for="rqstrLname">Last Name:</label>
-			            <?php echo($row[student_Lname])?>
+			            <?php echo($row['student_Lname'])?>
 
 						<label for="rqstrUniq">Uniqname:</label>
-			            <?php echo($row[refLetter_FKstudent_uniqname])?>		        
+			            <?php echo($row['refLetter_FKstudent_uniqname'])?>
 			            </div>
 			    </fieldset>
 			    <fieldset>
 			    	<legend>Reference Letter Details</legend>
 			    	
 			        	<label for="posTitle">Job Title:</label>
-			            <input type="text" name="posTitle" id="posTitle" size="30" maxlength="128" value= "<?php echo($row[refLetter_positionTitle])?>"/>
+			            <input type="text" name="posTitle" id="posTitle" size="30" maxlength="128" value= "<?php echo($row['refLetter_positionTitle'])?>"/>
 
 			            <label for="dueDate">Date Due:</label>
-			            <?php echo($row[refLetter_dueDate])?>
+			            <?php echo($row['refLetter_dueDate'])?>
 			        
 
 			    	 <label for="rqstType">Request Type</label>
-			            <?php echo($row[refLetter_type])?>
+			            <?php echo($row['refLetter_type'])?>
 
 			        	<table>
 			        	<tr><th>Letter Writers</th><th>Date Sent</th></tr>
@@ -110,35 +111,35 @@ $row=mysqli_fetch_array($resultRecord);
 			        			if ($key === "refLetter_FKwriterID"){ 
 			        				if ($value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate1' class='dp' value=" . $row[refLetter_sentDate1] . "></td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate1' class='dp' value=" . $row['refLetter_sentDate1'] . "></td></tr>";
 			        				} else{
 			        					echo "<input type='hidden' name='sentDate1' value= 0000-00-00 >";
 			        				}
 			        			} elseif ($key === "refLetter_FKwriterID2"){ 
 			        				if ($value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate2' class='dp' value=" . $row[refLetter_sentDate2] . "></td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate2' class='dp' value=" . $row['refLetter_sentDate2'] . "></td></tr>";
 			        				} else{
 			        					echo "<input type='hidden' name='sentDate2' value= 0000-00-00 >";
 			        				}
 			        			} elseif ($key === "refLetter_FKwriterID3"){ 
 			        				if ($value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate3' class='dp' value=" . $row[refLetter_sentDate3] . "></td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate3' class='dp' value=" . $row['refLetter_sentDate3'] . "></td></tr>";
 			        				} else{
 			        					echo "<input type='hidden' name='sentDate3' value= 0000-00-00 >";
 			        				}
 			        			} elseif ($key === "refLetter_FKwriterID4"){ 
 			        				if ($value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate4' class='dp' value=" . $row[refLetter_sentDate4] . "></td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate4' class='dp' value=" . $row['refLetter_sentDate4'] . "></td></tr>";
 			        				} else{
 			        					echo "<input type='hidden' name='sentDate4' value= 0000-00-00 >";
 			        				}
 			        			} elseif ($key === "refLetter_FKwriterID5"){ 
 			        				if ($value !== "NotSelected"){
 				        				$fullName = ldapGleaner($value);
-				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate5' class='dp' value=" . $row[refLetter_sentDate5] . "></td></tr>";
+				        				echo "<tr><td>" . $value . " -- " . $fullName[0] . " " . $fullName[1] . "</td><td><input type='text' name='sentDate5' class='dp' value=" . $row['refLetter_sentDate5'] . "></td></tr>";
 			        				} else{
 			        					echo "<input type='hidden' name='sentDate5' value= 0000-00-00 >";
 			        				}
@@ -153,64 +154,64 @@ $row=mysqli_fetch_array($resultRecord);
 			    	<legend>Recipient Details</legend>  
 			        
 			        	<!-- <label for="recipTitle">Title:</label> -->
-			            <?php if ($row[refLetter_title] !== "other"){ echo($row[refLetter_title] );}; ?>
+			            <?php if ($row['refLetter_title'] !== "other"){ echo($row['refLetter_title'] );}; ?>
 			        			        
 			        	<!-- <label for="recipFname">First name:</label> -->
-			            <?php echo($row[refLetter_Fname])?>
+			            <?php echo($row['refLetter_Fname'])?>
 			        
 			        	<!-- <label for="recipLname">Last Name:</label> -->
-			            <?php echo($row[refLetter_Lname])?>
+			            <?php echo($row['refLetter_Lname'])?>
 			        
 			        	<!-- <label for="recipSuffix">Suffix:</label> -->
-			            <?php echo($row[refLetter_suffix])?>
+			            <?php echo($row['refLetter_suffix'])?>
 			        
 			        
 					<br />
 			        
 			        	<!-- <label for="recipInst">Institution:</label> -->
-			            <?php echo($row[refLetter_institute_name])?>
+			            <?php echo($row['refLetter_institute_name'])?>
 			        
 			        
 			        	<!-- <label for="recipDept">Department:</label> -->
-			            <?php echo($row[refLetter_institute_dept])?>
+			            <?php echo($row['refLetter_institute_dept'])?>
 
 			        <br />
 			        
 			        	<!-- <label for="recipRoom">Room or Suite:</label> -->
 			            <?php 
-			            	if (strlen($row[refLetter_institute_room]) > 0){
-			            		echo('Room/Suite: ' . $row[refLetter_institute_room] . '<br />');
+			            	if (strlen($row['refLetter_institute_room']) > 0){
+			            		echo('Room/Suite: ' . $row['refLetter_institute_room'] . '<br />');
 			            	};
 			            ?>   
 			        
 			        	<!-- <label for="recipStreet">Street:</label> -->
-			            <?php echo($row[refLetter_institute_street])?>
+			            <?php echo($row['refLetter_institute_street'])?>
 
 			        <br />
 			        
-			        <?php echo($row[refLetter_institute_city] . ", " . $row[refLetter_institute_state] . " " . $row[refLetter_institute_zipcode])?>			        
+			        <?php echo($row['refLetter_institute_city'] . ", " . $row['refLetter_institute_state'] . " " . $row['refLetter_institute_zipcode'])?>
 			        
 			        <br />
 			        <?php
-			        	if (strlen($row[refLetter_institute_country]) > 0){
-		            		echo($row[refLetter_institute_country] . '<br />');
+			        	if (strlen($row['refLetter_institute_country']) > 0){
+		            		echo($row['refLetter_institute_country'] . '<br />');
 		            	};
 	            		?>
 
 		            <br />
 		            <?php
-		            	if (strlen($row[refLetter_Email]) > 0){
-		            		echo('eMail: ' . $row[refLetter_Email] . '<br />');
+		            	if (strlen($row['refLetter_Email']) > 0){
+		            		echo('eMail: ' . $row['refLetter_Email'] . '<br />');
 		            	};
 
-		            	if (strlen($row[refLetter_URL]) > 0){
-		            		echo('URL: ' . $row[refLetter_URL] . '<br />');
+		            	if (strlen($row['refLetter_URL']) > 0){
+		            		echo('URL: ' . $row['refLetter_URL'] . '<br />');
 		            	};
 			          ?>  
 			        <br />
 
 			        	<label for="recipSpInstx">Special Instructions:</label>
-			            <?php echo($row[refLetter_specialInstx])?>
+			            <?php echo($row['refLetter_specialInstx'])?>
 			        
 			    </fieldset>
 			    			    
@@ -219,13 +220,13 @@ $row=mysqli_fetch_array($resultRecord);
 			
 
 			        	<label for="comments">Message:</label>
-			            <textarea name="comments" id="comments" rows="5" cols="50" ><?php echo($row[refLetter_message])?></textarea>
+			            <textarea name="comments" id="comments" rows="5" cols="50" ><?php echo($row['refLetter_message'])?></textarea>
 			            <br /><br />
 			            <label for="flag">Flag:</label>
 			            <span style="background-color: <?php echo($color) ?>;">&nbsp;&nbsp;&nbsp;</span>
 
 			            <select name="flag" id="flag">
-			            	  <option selected="selected" value="<?php echo($row[refLetter_flag])?>">Change Color</option>
+			            	  <option selected="selected" value="<?php echo($row['refLetter_flag'])?>">Change Color</option>
 							  <option value="1">Green</option>
 							  <option value="2">Red</option>
 							  <option value="3">Yellow</option>
@@ -355,6 +356,5 @@ legal action.</p>
 </html>	
 <?php
 }
-mysqli_free_result($resultRecord);
-mysqli_free_result($check);
+$db->close();
 

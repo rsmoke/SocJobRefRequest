@@ -3,12 +3,12 @@
 				  FROM SRL_tbl_refLetter AS Letter
 				  WHERE Letter.refLetter_FKstudent_uniqname = '$login_name'";
 
-		$ret = mysqli_query($db,$query);
 		$return = array();
 
-if (!$ret){
-			die('Database query failed.');
-			};
+if (!$ret = $db->query($query)) {
+  db_fatal_error("data select issue", $db->error, $query);
+  exit($user_err_message);
+}
 
 echo "<table id='userSub'>";
 
@@ -21,5 +21,4 @@ echo '<tr><th>ID</th><th>Institution</th><th>Requested</th><th>Title</th><th ali
 		};
 echo '</table>';
 
-		mysqli_free_result($ret);
-		mysqli_close($db);
+$db->close();
